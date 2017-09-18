@@ -11,10 +11,12 @@ app = Flask(__name__)
 @app.route('/', methods=['POST'])
 def webhook():
     data = request.get_json()
+    text = data['text']
 
     if data['name'] != "Test":
-        msg = '{}, ECHO: {}'.format(data['name'], data['text'])
-        send_message(msg)
+        if text[:3].lower() == '@tn':
+            msg = '{}, ECHO: {}'.format(data['name'], data['text'])
+            send_message(msg)
 
     return "ok", 200
 

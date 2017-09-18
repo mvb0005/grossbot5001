@@ -43,10 +43,6 @@ def webhook():
                                    " for {}, enough to play the fight song" +
                                    " {} times.").format(b_in, b_out, float(b_out)/64.0)
                             send_message(msg)
-                            return
-
-            msg = '{}, ECHO: {}'.format(data['name'], data['text'])
-            send_message(msg)
 
     return "ok", 200
 

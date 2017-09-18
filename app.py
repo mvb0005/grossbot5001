@@ -29,8 +29,8 @@ def webhook():
                                     b_out = int(i.split()[1])
                             b_in += int(text.split()[3])
                             b_out += int(text.split()[5])
-                            os.environ['b_in'] = b_in
-                            os.environ['b_out'] = b_out
+                            os.environ['b_in'] = str(b_in)
+                            os.environ['b_out'] = str(b_out)
                             msg = ("Don't Forget To BREATHE!" +
                                    " We have breathed in for {} and out" +
                                    " for {}, enough to play the fight song" +

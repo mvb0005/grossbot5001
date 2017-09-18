@@ -21,8 +21,8 @@ def webhook():
                     if text.split()[4].lower() == "out":
                         if text.split()[3].isdigit() and text.split()[5].isdigit():
                             i = ""
-                            b_in = os.environ['b_in']
-                            b_out = os.environ['b_out']
+                            b_in = int(os.environ['b_in'])
+                            b_out = int(os.environ['b_out'])
                             if len(i.split()) == 2:
                                 if i.split()[0].isdigit() and i.split()[1].isdigit():
                                     b_in = int(i.split()[0])

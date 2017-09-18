@@ -24,6 +24,7 @@ def webhook():
                             try:
                                 f = open('breathe.txt' , 'r')
                                 i = f.read()
+                                f.close()
                             except:
                                 pass
                             b_in = 0
@@ -34,9 +35,9 @@ def webhook():
                                     b_out = int(i.split()[1])
                             b_in += int(text.split()[3])
                             b_out += int(text.split()[5])
-                            f.close()
                             f = open('breathe.txt' , 'w')
                             f.write(str(b_in) + " " + str(b_out))
+                            f.close()
                             msg = ("Don't Forget To BREATHE!" +
                                    " We have breathed in for {} and out" +
                                    " for {}, enough to play the fight song" +

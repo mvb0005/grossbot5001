@@ -21,23 +21,16 @@ def webhook():
                     if text.split()[4].lower() == "out":
                         if text.split()[3].isdigit() and text.split()[5].isdigit():
                             i = ""
-                            try:
-                                f = open('breathe.txt' , 'r')
-                                i = f.read()
-                                f.close()
-                            except:
-                                pass
-                            b_in = 0
-                            b_out = 0
+                            b_in = os.environ['b_in']
+                            b_out = os.environ['b_out']
                             if len(i.split()) == 2:
                                 if i.split()[0].isdigit() and i.split()[1].isdigit():
                                     b_in = int(i.split()[0])
                                     b_out = int(i.split()[1])
                             b_in += int(text.split()[3])
                             b_out += int(text.split()[5])
-                            f = open('breathe.txt' , 'w')
-                            f.write(str(b_in) + " " + str(b_out))
-                            f.close()
+                            os.environ['b_in'] = b_in
+                            os.environ['b_out'] = b_out
                             msg = ("Don't Forget To BREATHE!" +
                                    " We have breathed in for {} and out" +
                                    " for {}, enough to play the fight song" +

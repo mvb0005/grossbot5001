@@ -20,8 +20,12 @@ def webhook():
                 if text.split()[2].lower() == "in":
                     if text.split()[4].lower() == "out":
                         if text.split()[3].isdigit() and text.split()[5].isdigit():
-                            f = open('breathe.txt' , 'r')
-                            i = f.read()
+                            i = ""
+                            try:
+                                f = open('breathe.txt' , 'r')
+                                i = f.read()
+                            except:
+                                pass
                             b_in = 0
                             b_out = 0
                             if len(i.split()) == 2:

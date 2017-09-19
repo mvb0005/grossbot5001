@@ -32,6 +32,10 @@ def webhook():
                     if text.split()[4].lower() == "out":
                         if text.split()[3].isdigit() and text.split()[5].isdigit():
                             i = ""
+                            cur = con.cursor()
+                            cur.execute("""SELECT * FROM BREATHE""")
+                            rows = cur.fetchall()
+                            print(rows)
                             b_in = int(os.environ['b_in'])
                             b_out = int(os.environ['b_out'])
                             if len(i.split()) == 2:
@@ -49,7 +53,6 @@ def webhook():
                             send_message(msg)
 
     return "ok", 200
-
 def send_message(msg):
     url = 'https://api.groupme.com/v3/bots/post'
 

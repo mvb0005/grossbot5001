@@ -25,7 +25,7 @@ def webhook():
                             cur = con.cursor()
                             cur.execute("""SELECT * FROM BREATHE""")
                             rows = cur.fetchall()
-                            print(rows)
+                            print(rows['Breathe_In'])
                             b_in = int(os.environ['b_in'])
                             b_out = int(os.environ['b_out'])
                             if len(i.split()) == 2:

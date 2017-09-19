@@ -29,12 +29,12 @@ def webhook():
                             b_out = int([y for x,y in rows if x == "Breath_Out"][0])
                             b_in += int(text.split()[3])
                             b_out += int(text.split()[5])
-                            cursor.execute("""
+                            cur.execute("""
                                 UPDATE Breathe
                                 SET value=%s
                                 WHERE id=%s
                             """, (str(b_in),"Breath_In"))
-                            cursor.execute("""
+                            cur.execute("""
                                 UPDATE Breathe
                                 SET value=%s
                                 where id=%s

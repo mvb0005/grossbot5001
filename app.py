@@ -11,7 +11,7 @@ app = Flask(__name__)
 con = psycopg2.connect(os.environ["DATABASE_URL"])
 
 @app.route('/', methods=['POST'])
-def webhook():
+d(ef webhook():
     data = request.get_json()
     text = str(data['text'])
 
@@ -25,8 +25,8 @@ def webhook():
                             cur = con.cursor()
                             cur.execute("""SELECT * FROM BREATHE""")
                             rows = cur.fetchall()
-                            b_in = int([y for x,y in rows if x == "Breath_In"])
-                            b_out = int([y for x,y in rows if x == "Breath_Out"])
+                            b_in = int([y for x,y in rows if x == "Breath_In"][0])
+                            b_out = int([y for x,y in rows if x == "Breath_Out"][0])
                             if len(i.split()) == 2:
                                 if i.split()[0].isdigit() and i.split()[1].isdigit():
                                     b_in = int(i.split()[0])

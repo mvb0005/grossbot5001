@@ -15,7 +15,7 @@ def webhook():
     data = request.get_json()
     text = str(data['text'])
 
-    if data['name'] != "Test":
+    if data['name'] != "GrossBot":
         if text[:3].lower() == '@tn':
             if len(text.split()) >= 6 and text.split()[1].lower() == "breathe":
                 if text.split()[2].lower() == "in":

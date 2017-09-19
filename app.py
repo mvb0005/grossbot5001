@@ -25,9 +25,8 @@ def webhook():
                             cur = con.cursor()
                             cur.execute("""SELECT * FROM BREATHE""")
                             rows = cur.fetchall()
-                            print(rows['Breathe_In'])
-                            b_in = int(os.environ['b_in'])
-                            b_out = int(os.environ['b_out'])
+                            b_in = int([y for x,y in rows if x == "Breath_In"])
+                            b_out = int([y for x,y in rows if x == "Breath_Out"])
                             if len(i.split()) == 2:
                                 if i.split()[0].isdigit() and i.split()[1].isdigit():
                                     b_in = int(i.split()[0])

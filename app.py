@@ -1,6 +1,7 @@
 import os
 import json
-
+import psycopg2
+import urlparse
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
@@ -8,6 +9,16 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
+urlparse.uses_netloc.append("postgres")
+url = urlparse.urlparse(os.environ['DATABASE_URL'])
+
+conn = psycopg2.connect(
+    database=url.path[1:],
+    url=url.username,
+    password=url.password,
+    host=url.hostname,
+    port=url.port
+)
 
 @app.route('/', methods=['POST'])
 def webhook():

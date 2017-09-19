@@ -8,7 +8,6 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-urlparse.uses_netloc.append("postgres")
 url = urlparse.urlparse(os.environ['DATABASE_URL'])
 
 conn = psycopg2.connect(

@@ -11,7 +11,7 @@ app = Flask(__name__)
 con = psycopg2.connect(os.environ["DATABASE_URL"])
 
 @app.route('/', methods=['POST'])
-d(ef webhook():
+def webhook():
     data = request.get_json()
     text = str(data['text'])
 

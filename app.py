@@ -1,7 +1,6 @@
 import os
 import json
 import psycopg2
-import urlparse
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 

@@ -40,7 +40,6 @@ def webhook():
                                 where id=%s
                             """, (str(b_out),"Breath_Out"))
                             con.commit()
-                            con.close()
                             msg = ("Don't Forget To BREATHE!" +
                                    " We have breathed in for {} and out" +
                                    " for {}, enough to play the fight song" +
